@@ -1,0 +1,26 @@
+<mat-expansion-panel [expanded]="expanded">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <p class="title">
+        <ng-content></ng-content>
+      </p>
+    </mat-panel-title>
+    <mat-panel-description>
+      <button mat-icon-button (click)="toggleCamera($event)" [color]="cameraOn?'accent':'primary'" matTooltip="Request cam & mic">
+        <mat-icon *ngIf="cameraOn">videocam_off</mat-icon>
+        <mat-icon *ngIf="!cameraOn">videocam</mat-icon>
+      </button>
+      <button mat-icon-button (click)="toggleRecording($event)" [color]="recording?'accent':'primary'"
+        [disabled]="!cameraOn" matTooltip="Start/stop recording">
+        <mat-icon *ngIf="recording">radio_button_checked</mat-icon>
+        <mat-icon *ngIf="!recording">radio_button_unchecked</mat-icon>
+      </button>
+      <button mat-icon-button (click)="togglePlay($event)" [color]="playing?'accent':'primary'"
+        [disabled]="!playbackUrl || recording" matTooltip="play/pause">
+        <mat-icon *ngIf="playing">pause_circle</mat-icon>
+        <mat-icon *ngIf="!playing">play_circle</mat-icon>
+      </button>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <video autoplay #video [class]="recording ? 'video recording' : 'video'"></video>
+</mat-expansion-panel>

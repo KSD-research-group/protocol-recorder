@@ -1,0 +1,19 @@
+<mat-toolbar>
+  <span>Protocol Recorder</span>
+</mat-toolbar>
+
+<div class="container">
+  <app-recorder id="sketch" (recordingAvailable)="handleFirstRecording($event)" class="item" [expanded]="true">
+    Sketch Recorder
+  </app-recorder>
+
+  <app-retro-recorder *ngIf="firstRecording" id="protocol" [recording]="firstRecording.video"
+    (recordingAvailable)="handleSecondRecording($event)" class="item">
+    Protocol Recorder
+  </app-retro-recorder>
+
+</div>
+
+<footer>
+  <app-preferences></app-preferences>
+</footer>

@@ -1,0 +1,26 @@
+.title {
+  line-height: 40px;
+  height: 30px;
+}
+
+.video {
+  width: 400px;
+  height: 300px;
+  background-color: #f5f5f5;
+  border: 5px solid #fff;
+}
+
+.video.recording {
+  animation: blink 1s step-end;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+}
+
+@keyframes blink {
+  0% {
+    border-color: #fff;
+  }
+  50% {
+    border-color: #ff4081;
+  }
+}

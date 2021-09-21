@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Enter session name</h1>
+
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="John Doe" autocomplete="off" #name (change)="change($event)">
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-flat-button color="accent" cdkFocusInitial [disabled]="!this.closable" mat-dialog-close (click)="setName()">Start</button>
+</div>
